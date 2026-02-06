@@ -1,0 +1,27 @@
+{
+  "name": "nav-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy --minify",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply nav-app-db --local",
+    "db:migrate:prod": "wrangler d1 migrations apply nav-app-db --remote",
+    "db:seed:local": "wrangler d1 execute nav-app-db --local --file ./scripts/init_seed.sql",
+    "db:seed:prod": "wrangler d1 execute nav-app-db --remote --file ./scripts/init_seed.sql"
+  },
+  "dependencies": {
+    "@hono/swagger-ui": "^0.5.3",
+    "@hono/zod-openapi": "^1.2.1",
+    "drizzle-orm": "^0.45.1",
+    "hono": "^4.11.7",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250204.0",
+    "drizzle-kit": "^0.31.8",
+    "typescript": "^5.0.0",
+    "wrangler": "^3.107.2"
+  }
+}

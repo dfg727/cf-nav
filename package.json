@@ -1,0 +1,22 @@
+{
+  "name": "cf-nav-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "nav-api",
+    "packages/*"
+  ],
+  "scripts": {
+    "api:dev": "npm run dev -w nav-api",
+    "api:deploy": "npm run deploy -w nav-api",
+    "api:db:migrate:local": "npm run db:migrate:local -w nav-api",    
+    "api:db:seed:local": "npm run db:seed:local -w nav-api",
+    "api:db:generate": "npm run db:generate -w nav-api",
+    "api:db:migrate:prod": "npm run db:migrate:prod -w nav-api",
+    "api:db:seed:prod": "npm run db:seed:prod -w nav-api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,12 @@
+name = "nav-api"
+main = "src/index.ts"
+compatibility_date = "2025-02-04"
+
+[vars]
+API_KEY = "secret-api-key"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "nav-app-db"
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+migrations_dir = "drizzle"

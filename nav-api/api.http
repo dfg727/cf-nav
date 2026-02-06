@@ -1,0 +1,80 @@
+@baseUrl = http://localhost:8787/api
+@apiKey = secret-api-key
+
+### ==========================================
+### Categories
+### ==========================================
+
+### Get Public Categories (No Auth)
+GET {{baseUrl}}/categories
+
+### Get All Categories (Admin)
+GET {{baseUrl}}/categories
+api-key: {{apiKey}}
+
+### Create Category
+POST {{baseUrl}}/categories
+Content-Type: application/json
+api-key: {{apiKey}}
+
+{
+  "name": "Dev Tools",
+  "sortOrder": 1,
+  "isPublic": true,
+  "isExpand": true
+}
+
+### Update Category
+# Replace 1 with the actual ID from the Create response
+PUT {{baseUrl}}/categories/1
+Content-Type: application/json
+api-key: {{apiKey}}
+
+{
+  "name": "Developer Tools",
+  "sortOrder": 2
+}
+
+### Delete Category
+DELETE {{baseUrl}}/categories/1
+api-key: {{apiKey}}
+
+
+### ==========================================
+### Sites
+### ==========================================
+
+### Get Public Sites
+GET {{baseUrl}}/sites
+
+### Get All Sites (Admin)
+GET {{baseUrl}}/sites
+api-key: {{apiKey}}
+
+### Create Site
+POST {{baseUrl}}/sites
+Content-Type: application/json
+api-key: {{apiKey}}
+
+{
+  "categoryId": 1,
+  "name": "GitHub",
+  "url": "https://github.com",
+  "description": "Code hosting platform",
+  "icon": "https://github.com/fluidicon.png",
+  "isPublic": true
+}
+
+### Update Site
+PUT {{baseUrl}}/sites/1
+Content-Type: application/json
+api-key: {{apiKey}}
+
+{
+  "name": "GitHub - Updated",
+  "description": "Updated description"
+}
+
+### Delete Site
+DELETE {{baseUrl}}/sites/1
+api-key: {{apiKey}}
