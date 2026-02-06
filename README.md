@@ -24,7 +24,7 @@ npm run api:db:migrate:local
 # 在本地初始化数据种子 (可选)
 npm run api:db:seed:local
 # 启动 api
-npm run api:dev
+sudo npm run api:dev
 ```
 
 ## Deployment
