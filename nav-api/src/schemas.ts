@@ -2,11 +2,19 @@ import { z } from '@hono/zod-openapi';
 
 export const CategorySchema = z.object({
     id: z.number().openapi({ example: 1 }),
+    pid: z.number().nullable().optional().openapi({ example: null }),
     name: z.string().openapi({ example: 'Dev Tools' }),
     sortOrder: z.number().default(0).openapi({ example: 0 }),
     isPublic: z.boolean().default(true).openapi({ example: true }),
     isExpand: z.boolean().default(false).openapi({ example: false }),
-    status: z.number().default(1).openapi({ example: 1 }),
+    status: z
+        .number()
+        .int()
+        .default(1)
+        .openapi({
+            example: 1,
+            description: 'Status: 0=draft, 1=enabled, 2=disabled, 3=deleted',
+        }),
     createdAt: z.string().optional().openapi({ example: '2024-01-01T00:00:00Z' }),
 });
 
@@ -21,7 +29,14 @@ export const SiteSchema = z.object({
     description: z.string().nullable().optional(),
     icon: z.string().nullable().optional(),
     tags: z.string().nullable().optional(),
-    status: z.number().default(1),
+    status: z
+        .number()
+        .int()
+        .default(1)
+        .openapi({
+            example: 1,
+            description: 'Status: 0=draft, 1=enabled, 2=disabled, 3=deleted',
+        }),
     isPublic: z.boolean().default(true),
     sortOrder: z.number().default(0),
     createdAt: z.string().optional(),

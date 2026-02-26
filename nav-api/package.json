@@ -8,8 +8,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply nav-app-db --local",
     "db:migrate:prod": "wrangler d1 migrations apply nav-app-db --remote",
-    "db:seed:local": "wrangler d1 execute nav-app-db --local --file ./scripts/init_seed.sql",
-    "db:seed:prod": "wrangler d1 execute nav-app-db --remote --file ./scripts/init_seed.sql"
+    "db:seed:local": "node ./scripts/db-seed.js local",
+    "db:seed:prod": "node ./scripts/db-seed.js prod"
   },
   "dependencies": {
     "@hono/swagger-ui": "^0.5.3",

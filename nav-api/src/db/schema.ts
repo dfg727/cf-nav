@@ -2,6 +2,7 @@ import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 
 export const categories = sqliteTable('categories', {
     id: integer('id').primaryKey({ autoIncrement: true }),
+    pid: integer('pid'),
     name: text('name').notNull(),
     sortOrder: integer('sort_order').default(0),
     isPublic: integer('is_public', { mode: 'boolean' }).default(true),

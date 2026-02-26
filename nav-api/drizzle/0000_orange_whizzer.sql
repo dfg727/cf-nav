@@ -1,5 +1,6 @@
 CREATE TABLE `categories` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	`pid` integer,
 	`name` text NOT NULL,
 	`sort_order` integer DEFAULT 0,
 	`is_public` integer DEFAULT true,
