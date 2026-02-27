@@ -169,40 +169,10 @@ SELECT
   strftime('%s', 'now') * 1000
 WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = 'cmliussss.com' AND url = 'https://cmliussss.com/');
 
--- 福利吧地址发布页 (杂类)
+-- 青云志 (涨姿势)
 INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
 SELECT
-  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
-  '福利吧地址发布页',
-  'https://fuliba-1251744788.file.myqcloud.com/',
-  '',
-  NULL,
-  1,
-  1,
-  3,
-  strftime('%s', 'now') * 1000,
-  strftime('%s', 'now') * 1000
-WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = '福利吧地址发布页' AND url = 'https://fuliba-1251744788.file.myqcloud.com/');
-
--- rectg - Telegram 导航 (杂类)
-INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
-SELECT
-  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
-  'rectg - Telegram 导航',
-  'https://www.rectg.com/',
-  NULL,
-  'https://www.rectg.com/favicon.ico',
-  1,
-  1,
-  4,
-  strftime('%s', 'now') * 1000,
-  strftime('%s', 'now') * 1000
-WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = 'rectg - Telegram 导航' AND url = 'https://www.rectg.com/');
-
--- 青云志 (杂类)
-INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
-SELECT
-  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
+  (SELECT id FROM categories WHERE name = '涨姿势' LIMIT 1),
   '青云志',
   'https://blog.notett.com/',
   '一个又菜又爱玩的小白',
@@ -214,10 +184,10 @@ SELECT
   strftime('%s', 'now') * 1000
 WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = '青云志' AND url = 'https://blog.notett.com/');
 
--- 科技共享导航站 (杂类)
+-- 科技共享导航站 (涨姿势)
 INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
 SELECT
-  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
+  (SELECT id FROM categories WHERE name = '涨姿势' LIMIT 1),
   '科技共享导航站',
   'https://kjgx.168668520.xyz/',
   'Webstack Hugo版主题,网址导航',
@@ -229,10 +199,10 @@ SELECT
   strftime('%s', 'now') * 1000
 WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = '科技共享导航站' AND url = 'https://kjgx.168668520.xyz/');
 
--- 老王导航-个人专属导航页-Navitem (杂类)
+-- 老王导航-个人专属导航页-Navitem (涨姿势)
 INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
 SELECT
-  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
+  (SELECT id FROM categories WHERE name = '涨姿势' LIMIT 1),
   '老王导航-个人专属导航页-Navitem',
   'http://nav.eooce.com/',
   '个人导航页面，提供常用网站链接和工具集合，让您快速访问常用资源',
@@ -654,6 +624,36 @@ SELECT
 WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = 'Merge Subscriptions-最好用的订阅管理系统' AND url = 'https://merge-sub.94sub.qzz.io/');
 
 -- ========== 杂类 ==========
+
+-- 福利吧地址发布页 (杂类)
+INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
+SELECT
+  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
+  '福利吧地址发布页',
+  'https://fuliba-1251744788.file.myqcloud.com/',
+  '',
+  NULL,
+  1,
+  1,
+  3,
+  strftime('%s', 'now') * 1000,
+  strftime('%s', 'now') * 1000
+WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = '福利吧地址发布页' AND url = 'https://fuliba-1251744788.file.myqcloud.com/');
+
+-- rectg - Telegram 导航 (杂类)
+INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
+SELECT
+  (SELECT id FROM categories WHERE name = '杂类' LIMIT 1),
+  'rectg - Telegram 导航',
+  'https://www.rectg.com/',
+  NULL,
+  'https://www.rectg.com/favicon.ico',
+  1,
+  1,
+  4,
+  strftime('%s', 'now') * 1000,
+  strftime('%s', 'now') * 1000
+WHERE NOT EXISTS (SELECT 1 FROM sites WHERE name = 'rectg - Telegram 导航' AND url = 'https://www.rectg.com/');
 
 -- ASUS Login (杂类)
 INSERT INTO sites (category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at)
