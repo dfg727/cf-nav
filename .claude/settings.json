@@ -36,7 +36,32 @@
       "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.map\\(n=>\\({name:n.name,type:n.type}\\)\\)\\);}\\)\")",
       "Bash(node scripts/test-api.js)",
       "Bash(grep -n \"getSitesRoute\" -A 12 /d/Workspace/github/cf-nav/nav-api2/src/routes/sites.ts | head -20)",
-      "Read(//d/Workspace/github/cf-nav/nav-api2/src/routes/**)"
+      "Read(//d/Workspace/github/cf-nav/nav-api2/src/routes/**)",
+      "Read(//d/Workspace/gitee/hybrid-tools/tabler/static/sitenav/**)",
+      "Bash(ls -la /d/Workspace/github/cf-nav/ 2>&1)",
+      "Read(//d/Workspace/github/cf-nav//**)",
+      "Read(//d/Workspace/github/**)",
+      "PowerShell(Get-ChildItem -Path 'D:\\\\$RECYCLE.BIN' -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'nav-api2|nav-admin' } | Select-Object FullName, LastWriteTime)",
+      "Read(//d/Workspace/github/cf-nav/nav-api/**)",
+      "Read(//d/Workspace/github/cf-nav/nav-api/src/**)",
+      "Read(//d/Workspace/github/cf-nav/nav-api/scripts//**)",
+      "Read(//d/Workspace/github/cf-nav/nav-api/scripts/**)",
+      "Bash(grep -n \"PHASE 0\\\\|INSERT INTO categories \\(pid, name\" /d/Workspace/github/cf-nav/nav-api/scripts/01.migrated_legacy_data.sql | head -10 *)",
+      "Read(//d/Workspace/github/cf-nav/nav-api/src/routes/**)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(tasklist //FI \"IMAGENAME eq workerd.exe\")",
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
+      "Bash(curl -s -o /tmp/resp1.json -w \"status:%{http_code}\\\\n\" -X DELETE -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v2/categories/1\")",
+      "Bash(curl -s -o /tmp/resp2.json -w \"status:%{http_code}\\\\n\" -X DELETE -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites/3\")",
+      "Bash(curl -s -o /tmp/resp3.json -w \"status:%{http_code}\\\\n\" -X DELETE -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v2/categories/1000\")",
+      "Bash(grep -n \"^import\" /d/Workspace/github/cf-nav/nav-api/src/routes/v1.ts)",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites?category=h5\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.find\\(c=>c.id===2033\\)\\);}\\)\")",
+      "Bash(curl -s -X POST -H 'api-key: secret-api-key' -H 'Content-Type: application/json' -d '{\"pId\":0,\"name\":\"工具\",\"desc\":\"\",\"uri\":\"\",\"favicon\":\"\",\"status\":1,\"orderNum\":3,\"isExpand\":0,\"category\":\"h5\"}' http://127.0.0.1:8787/api/v1/sites?id=2033)",
+      "Bash(curl -s -X POST -H 'api-key: secret-api-key' -H 'Content-Type: application/json; charset=utf-8' --data-binary @/tmp/payload.json http://127.0.0.1:8787/api/v1/sites?id=2033)"
+    ],
+    "additionalDirectories": [
+      "d:\\Workspace\\gitee\\hybrid-tools\\tabler\\static\\sitenav"
     ]
   }
 }

@@ -1,6 +1,6 @@
 -- ========================================================
 -- Auto-generated data migration from legacy python sitenav
--- Generated At: 2026-07-17T08:40:57.140Z
+-- Generated At: 2026-07-17T09:34:25.921Z
 -- ========================================================
 
 -- Clean legacy table data for idempotency

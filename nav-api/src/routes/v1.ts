@@ -7,7 +7,7 @@ import { decodeV1Id, assertCategoryIdHeadroom } from '../adapters/v1IdCodec';
 import { fetchMetadataFromUrl } from '../utils/metadata';
 import { Bindings } from '../bindings';
 import { cascadeDeleteCategory } from '../db/utils';
-import { isRootBucketCategory } from '../rootCategories';
+import { isRootBucketCategory, resolveRootBucketId } from '../rootCategories';
 import {
     SiteItemV1Schema,
     SiteItemV1TreeSchema,
@@ -313,6 +313,11 @@ app.openapi(saveSiteV1Route, async (c) => {
     // 判定是否是分类节点
     const isCategory = !uri || uri.toUpperCase() === 'NULL' || uri.trim() === 'javascript:void(0);';
 
+    // pId=0 在 v1 语义里是"挂到 body.category（index/other/h5）这个桶的顶层"，
+    // 不能直接写成 pid=NULL/categoryId=0——那样会让节点变成真正脱离所有桶的孤儿，
+    // 下次读取时会按其（不存在的）根节点 name 兜底判成 other，和调用方传入的 category 对不上。
+    const resolvedParentId = pId === 0 ? await resolveRootBucketId(db, body.category) : pId;
+
     if (idStr) {
         // 更新逻辑
         const id = parseInt(idStr, 10);
@@ -321,7 +326,7 @@ app.openapi(saveSiteV1Route, async (c) => {
         if (ref.table === 'category') {
             await db.update(categories)
                 .set({
-                    pid: pId === 0 ? null : pId,
+                    pid: resolvedParentId,
                     name: name,
                     sortOrder: orderNum,
                     isExpand: isExpand === 1,
@@ -331,7 +336,7 @@ app.openapi(saveSiteV1Route, async (c) => {
         } else {
             await db.update(sites)
                 .set({
-                    categoryId: pId,
+                    categoryId: resolvedParentId,
                     name: name,
                     url: uri,
                     description: desc,
@@ -346,7 +351,7 @@ app.openapi(saveSiteV1Route, async (c) => {
         // 新增逻辑
         if (isCategory) {
             await db.insert(categories).values({
-                pid: pId === 0 ? null : pId,
+                pid: resolvedParentId,
                 name: name,
                 sortOrder: orderNum,
                 isExpand: isExpand === 1,
@@ -370,7 +375,7 @@ app.openapi(saveSiteV1Route, async (c) => {
             }
 
             await db.insert(sites).values({
-                categoryId: pId,
+                categoryId: resolvedParentId,
                 name: finalName,
                 url: uri,
                 description: finalDesc,
