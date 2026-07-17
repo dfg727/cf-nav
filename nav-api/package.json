@@ -5,11 +5,15 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy --minify",
+    "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate:local": "wrangler d1 migrations apply nav-app-db --local",
     "db:migrate:prod": "wrangler d1 migrations apply nav-app-db --remote",
     "db:seed:local": "node ./scripts/db-seed.js local",
-    "db:seed:prod": "node ./scripts/db-seed.js prod"
+    "db:seed:prod": "node ./scripts/db-seed.js prod",
+    "db:migrate-legacy:generate": "node ./scripts/generate-legacy-sql.js",
+    "db:migrate-legacy:local": "npm run db:migrate-legacy:generate && wrangler d1 execute nav-app-db --local --file=./scripts/01.migrated_legacy_data.sql",
+    "db:migrate-legacy:prod": "npm run db:migrate-legacy:generate && wrangler d1 execute nav-app-db --remote --file=./scripts/01.migrated_legacy_data.sql"
   },
   "dependencies": {
     "@hono/swagger-ui": "^0.5.3",

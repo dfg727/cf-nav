@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, index } from 'drizzle-orm/sqlite-core';
 
 export const categories = sqliteTable('categories', {
     id: integer('id').primaryKey({ autoIncrement: true }),
@@ -9,7 +9,10 @@ export const categories = sqliteTable('categories', {
     isExpand: integer('is_expand', { mode: 'boolean' }).default(false),
     status: integer('status').default(1),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
-});
+}, (table) => [
+    index('idx_categories_pid').on(table.pid),
+    index('idx_categories_public_status_sort').on(table.isPublic, table.status, table.sortOrder),
+]);
 
 export const sites = sqliteTable('sites', {
     id: integer('id').primaryKey({ autoIncrement: true }),
@@ -24,5 +27,8 @@ export const sites = sqliteTable('sites', {
     isPublic: integer('is_public', { mode: 'boolean' }).default(true),
     sortOrder: integer('sort_order').default(0),
     createdAt: integer('created_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
-    updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()), // Start with createdAt, update manually or via app logic
-});
+    updatedAt: integer('updated_at', { mode: 'timestamp' }).$defaultFn(() => new Date()),
+}, (table) => [
+    index('idx_sites_category_id').on(table.categoryId),
+    index('idx_sites_public_status_sort').on(table.isPublic, table.status, table.sortOrder),
+]);

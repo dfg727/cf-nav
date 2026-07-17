@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "35ce1ab2-1a67-479b-9c66-8ec17271f257",
+  "id": "172176f5-d7a8-421c-94db-fa9417c416a9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "categories": {
@@ -68,7 +68,24 @@
           "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "idx_categories_pid": {
+          "name": "idx_categories_pid",
+          "columns": [
+            "pid"
+          ],
+          "isUnique": false
+        },
+        "idx_categories_public_status_sort": {
+          "name": "idx_categories_public_status_sort",
+          "columns": [
+            "is_public",
+            "status",
+            "sort_order"
+          ],
+          "isUnique": false
+        }
+      },
       "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
@@ -172,7 +189,24 @@
           "autoincrement": false
         }
       },
-      "indexes": {},
+      "indexes": {
+        "idx_sites_category_id": {
+          "name": "idx_sites_category_id",
+          "columns": [
+            "category_id"
+          ],
+          "isUnique": false
+        },
+        "idx_sites_public_status_sort": {
+          "name": "idx_sites_public_status_sort",
+          "columns": [
+            "is_public",
+            "status",
+            "sort_order"
+          ],
+          "isUnique": false
+        }
+      },
       "foreignKeys": {
         "sites_category_id_categories_id_fk": {
           "name": "sites_category_id_categories_id_fk",

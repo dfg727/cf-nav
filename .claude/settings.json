@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /d/Workspace/github/cf-nav/nav-api2 && cat node_modules/@hono/swagger-ui/dist/index.js)",
+      "Read(//d/Workspace/github/cf-nav/nav-api2/**)",
+      "Bash(echo \"tsc exit=$?\")",
+      "Bash(curl -s http://127.0.0.1:18788/docs)",
+      "Bash(pkill -f workerd)",
+      "Bash(node -e \"console.log\\(require\\('fs'\\).readFileSync\\('node_modules/@hono/swagger-ui/dist/index.cjs','utf8'\\).slice\\(0,3000\\)\\)\")",
+      "Bash(find \"/d/Workspace/github/XHS-Downloader/source/sitenav\" -type f | sort)",
+      "Read(//d/Workspace/github/XHS-Downloader/source/sitenav/**)",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites/tree?category=index\")",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:18791/api/v2/categories\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);j.filter\\(c=>c.pid===null\\).forEach\\(c=>console.log\\(c.id, c.name, c.id>=2000?'-> other':'-> index'\\)\\);}\\)\")",
+      "Read(//d/Workspace/github/cf-nav/nav-api2/scripts/**)",
+      "Bash(rm -f 01.init_seed_categories.sql)",
+      "Bash(wc -l /d/Workspace/github/cf-nav/nav-api2/scripts/02.init_seed_sites.sql)",
+      "Bash(rm -f scripts/03.migrated_legacy_data.sql)",
+      "Bash(node scripts/generate-legacy-sql.js)",
+      "Bash(tasklist)",
+      "Bash(taskkill //F //IM workerd.exe //T)",
+      "Bash(npm run *)",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v2/categories\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);const roots=j.filter\\(c=>c.pid===null\\);console.log\\('roots:',roots.map\\(c=>\\({id:c.id,name:c.name}\\)\\)\\);const commonSites=j.find\\(c=>c.name==='Common Sites'\\);console.log\\('Common Sites pid ->', commonSites.pid\\);const changyong=j.filter\\(c=>c.name==='常用'\\);console.log\\('常用 \\(should be 2, one under other, one under h5\\):', changyong.map\\(c=>\\({id:c.id,pid:c.pid}\\)\\)\\);}\\)\")",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites?category=index\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);const leaked=j.filter\\(i=>['index','other','h5'].includes\\(i.name\\)\\);console.log\\('leaked root-bucket nodes:', leaked\\);console.log\\('count:', j.length\\);}\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.map\\(n=>\\({name:n.name,pId:n.pId,children:n.children.length}\\)\\)\\);}\\)\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.find\\(i=>i.name==='Common Sites'\\)\\);}\\)\")",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites/tree?category=h5\")",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites/tree?category=other\")",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X DELETE -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v2/categories/1\")",
+      "Bash(curl -s -w \"\\\\nHTTP %{http_code}\\\\n\" -X DELETE -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v1/sites/2\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.filter\\(c=>c.pid===null\\).map\\(c=>c.name\\)\\);}\\)\")",
+      "Bash(curl -s -H \"api-key: secret-api-key\" \"http://127.0.0.1:8787/api/v2/sites/tree?category=index\")",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\).on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.map\\(n=>\\({name:n.name,type:n.type}\\)\\)\\);}\\)\")",
+      "Bash(node scripts/test-api.js)",
+      "Bash(grep -n \"getSitesRoute\" -A 12 /d/Workspace/github/cf-nav/nav-api2/src/routes/sites.ts | head -20)",
+      "Read(//d/Workspace/github/cf-nav/nav-api2/src/routes/**)"
+    ]
+  }
+}

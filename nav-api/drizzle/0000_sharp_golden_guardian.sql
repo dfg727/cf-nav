@@ -9,6 +9,8 @@ CREATE TABLE `categories` (
 	`created_at` integer
 );
 --> statement-breakpoint
+CREATE INDEX `idx_categories_pid` ON `categories` (`pid`);--> statement-breakpoint
+CREATE INDEX `idx_categories_public_status_sort` ON `categories` (`is_public`,`status`,`sort_order`);--> statement-breakpoint
 CREATE TABLE `sites` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`category_id` integer,
@@ -25,3 +27,6 @@ CREATE TABLE `sites` (
 	`updated_at` integer,
 	FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`) ON UPDATE no action ON DELETE no action
 );
+--> statement-breakpoint
+CREATE INDEX `idx_sites_category_id` ON `sites` (`category_id`);--> statement-breakpoint
+CREATE INDEX `idx_sites_public_status_sort` ON `sites` (`is_public`,`status`,`sort_order`);
