@@ -140,3 +140,5 @@ vite.config.ts.timestamp-*
 /nav-api/wrangler.toml
 
 .wrangler/
+.gstack/
+.claude/
