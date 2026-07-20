@@ -256,6 +256,14 @@ app.openapi(getSiteTreeRoute, async (c) => {
         }
     }
 
+    // sortOrder 只在"同一父节点下的兄弟节点之间"有意义——子分类是在站点之后才被
+    // push 进 children 数组的（见上面两个循环的顺序），所以每一层都要按 sortOrder
+    // 重新排一次，不能依赖 push 的顺序碰巧就是正确的兄弟顺序。
+    const byOrder = (a: CategoryTreeNode | SiteTreeNode, b: CategoryTreeNode | SiteTreeNode) => a.sortOrder - b.sortOrder;
+    for (const node of categoryMap.values()) {
+        node.children.sort(byOrder);
+    }
+
     const { category: categoryFilter } = c.req.valid('query');
     const matched = Array.from(categoryMap.values()).find((node) =>
         node.name === categoryFilter && (node.pid === null || node.pid === 0)

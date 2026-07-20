@@ -233,6 +233,14 @@ app.openapi(getCategoryTreeRoute, async (c) => {
         }
     }
 
+    // sortOrder 只在同一父节点下的兄弟节点之间有意义，显式按层排一次，
+    // 不依赖"rows 本来就按 sortOrder 查出来，push 顺序自然正确"这个隐式前提。
+    const byOrder = (a: CategoryTreeNode, b: CategoryTreeNode) => a.sortOrder - b.sortOrder;
+    for (const node of nodeMap.values()) {
+        node.children.sort(byOrder);
+    }
+    roots.sort(byOrder);
+
     return c.json(roots, 200);
 });
 

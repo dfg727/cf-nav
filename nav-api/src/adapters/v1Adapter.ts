@@ -128,7 +128,12 @@ export interface SiteItemV1Tree extends SiteItemV1 {
 }
 
 /**
- * 将扁平的 SiteItemV1 转换为树形结构
+ * 将扁平的 SiteItemV1 转换为树形结构。
+ *
+ * orderNum 只在"同一父节点下的兄弟节点之间"有排序意义——不同分支（比如 h5 下的
+ * "常用" 和 "文娱" 各自的子节点）大量存在重复的 orderNum 值（1,2,3...各自从头计），
+ * 互相之间的数值大小没有可比性。分组之后必须在每一层各自按 orderNum 重新排序，
+ * 不能依赖调用方传入的 flatItems 已经是全局排好序的这个假设。
  */
 export function buildV1Tree(flatItems: SiteItemV1[]): SiteItemV1Tree[] {
     const itemMap = new Map<number, SiteItemV1Tree>();
@@ -150,6 +155,12 @@ export function buildV1Tree(flatItems: SiteItemV1[]): SiteItemV1Tree[] {
             parent.children.push(node);
         }
     });
+
+    const byOrderNum = (a: SiteItemV1Tree, b: SiteItemV1Tree) => a.orderNum - b.orderNum;
+    for (const node of itemMap.values()) {
+        node.children.sort(byOrderNum);
+    }
+    rootNodes.sort(byOrderNum);
 
     return rootNodes;
 }
