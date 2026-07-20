@@ -1,6 +1,6 @@
 -- ========================================================
 -- Auto-generated data migration from legacy python sitenav (single source: scripts/legacy/site_item.sql)
--- Generated At: 2026-07-20T01:05:25.956Z
+-- Generated At: 2026-07-20T01:39:17.633Z
 -- This is the ONLY script that needs to be run to fully sync local/prod data.
 -- Do not hand-edit — regenerate via `npm run db:migrate-legacy:generate`.
 -- ========================================================
@@ -52,8 +52,9 @@ INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status,
 INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2126, (SELECT id FROM categories WHERE name = 'h5' AND pid IS NULL LIMIT 1), '文娱', 2, 1, 0, 1, strftime('%s', 'now') * 1000);
 INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2127, (SELECT id FROM categories WHERE name = 'h5' AND pid IS NULL LIMIT 1), '求知', 3, 1, 0, 1, strftime('%s', 'now') * 1000);
 INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2134, (SELECT id FROM categories WHERE name = 'h5' AND pid IS NULL LIMIT 1), '工具', 4, 1, 0, 1, strftime('%s', 'now') * 1000);
+INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2136, (SELECT id FROM categories WHERE name = 'h5' AND pid IS NULL LIMIT 1), '搬砖', 5, 0, 0, 0, strftime('%s', 'now') * 1000);
 INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2140, 2125, '兰洋科技', 10, 1, 0, 1, strftime('%s', 'now') * 1000);
-INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2143, 2126, '18+', 3, 1, 0, 1, strftime('%s', 'now') * 1000);
+INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2143, 2126, '18+', 100, 1, 0, 1, strftime('%s', 'now') * 1000);
 INSERT INTO categories (id, pid, name, sort_order, is_public, is_expand, status, created_at) VALUES (2158, 2134, 'Cloudflare', 5, 1, 1, 1, strftime('%s', 'now') * 1000);
 
 -- ========================================================
@@ -195,7 +196,6 @@ INSERT INTO sites (id, category_id, name, url, description, icon, status, is_pub
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002122, 2005, '深圳市公安局出入境便民网', 'http://www.szga.gov.cn/MSJW/', '', NULL, 1, 1, 2122, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002123, 2005, '美食杰 - 美食_菜谱大全_食谱_美食网', 'http://www.meishij.net/', '', NULL, 1, 1, 2123, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002124, 2005, '麦库记事', 'https://note.sdo.com/my', '', NULL, 1, 1, 2124, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
-INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002128, (SELECT id FROM categories WHERE name = 'index' AND pid IS NULL LIMIT 1), 'Test Site', 'https://example.com', 'Testing', NULL, 1, 1, 100, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002131, 2143, '123小说网', 'https://www.banzhu77777777.net/', '', '', 1, 1, 5, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002132, 2143, 'www.eves-long.com', 'https://www.eves-long.com/', '', '', 1, 1, 5, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
 INSERT INTO sites (id, category_id, name, url, description, icon, status, is_public, sort_order, created_at, updated_at) VALUES (10002133, 2143, 'MissAV - 免费观看日本AV，JAV在线高清', 'https://missav.vc/cn', '在线观看JAV，免费观看日本AV高清。', 'https://missav.vc/cache/2fad7247bf4afd916052a2af5e9631de43122a.png', 1, 1, 4, strftime('%s', 'now') * 1000, strftime('%s', 'now') * 1000);
