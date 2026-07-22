@@ -6,7 +6,7 @@
 This is a monorepo managed by npm workspaces.
 
 - `nav-api`: Backend API (Cloudflare Workers, Hono, Drizzle)
-- `nav-ui`: Frontend UI (Planned)
+- `nav-ui`: Admin frontend for the v2 API (static HTML + Tailwind CSS + vanilla JS, deployable to Cloudflare Pages). See [nav-ui/README.md](nav-ui/README.md).
 
 ## Development
 
@@ -27,6 +27,12 @@ npm run api:db:seed:local
 sudo npm run api:dev
 ```
 
+Run dev server for the admin UI (needs the api running, see above):
+
+```bash
+npm run ui:dev
+```
+
 ## Deployment
 
 Deploy api to Cloudflare Workers:
@@ -40,5 +46,11 @@ npm run api:db:seed:prod
 
 # 3. 发布 Worker
 npm run api:deploy
+```
+
+Deploy the admin UI to Cloudflare Pages:
+
+```bash
+npm run ui:deploy
 ```
 

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CF Nav 管理后台</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="h-full bg-slate-50 text-slate-900 antialiased">
+  <div class="min-h-full flex flex-col">
+    <header class="border-b border-slate-200 bg-white sticky top-0 z-10">
+      <div class="mx-auto max-w-6xl px-3 sm:px-4 py-3 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2 min-w-0">
+          <div class="h-8 w-8 shrink-0 rounded-md bg-brand-600 text-white flex items-center justify-center font-bold">N</div>
+          <h1 class="text-base sm:text-lg font-semibold truncate">CF Nav 管理后台</h1>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <span id="conn-status" class="hidden sm:inline text-xs text-slate-400 truncate max-w-[220px]"></span>
+          <button type="button" id="settings-btn" class="btn-icon" title="设置">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
+              <path fill-rule="evenodd" d="M8.34 1.804A1 1 0 019.32 1h1.36a1 1 0 01.98.804l.295 1.473c.497.144.971.342 1.415.587l1.257-.834a1 1 0 011.243.13l.96.96a1 1 0 01.13 1.243l-.834 1.257c.245.444.443.918.587 1.415l1.473.294a1 1 0 01.804.98v1.361a1 1 0 01-.804.98l-1.473.295a6.95 6.95 0 01-.587 1.415l.834 1.257a1 1 0 01-.13 1.243l-.96.96a1 1 0 01-1.243.13l-1.257-.834a6.953 6.953 0 01-1.415.587l-.294 1.473a1 1 0 01-.98.804H9.32a1 1 0 01-.98-.804l-.295-1.473a6.957 6.957 0 01-1.415-.587l-1.257.834a1 1 0 01-1.243-.13l-.96-.96a1 1 0 01-.13-1.243l.834-1.257a6.957 6.957 0 01-.587-1.415l-1.473-.294A1 1 0 011 10.68V9.32a1 1 0 01.804-.98l1.473-.295c.144-.497.342-.971.587-1.415l-.834-1.257a1 1 0 01.13-1.243l.96-.96a1 1 0 011.243-.13l1.257.834a6.957 6.957 0 011.415-.587l.294-1.473zM13 10a3 3 0 11-6 0 3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="mx-auto max-w-6xl w-full px-3 sm:px-4 pt-4">
+      <div class="inline-flex gap-1 rounded-lg bg-slate-100 p-1">
+        <button type="button" data-tab="categories" class="tab-btn active">分类管理</button>
+        <button type="button" data-tab="sites" class="tab-btn">站点管理</button>
+      </div>
+    </nav>
+
+    <main class="mx-auto max-w-6xl w-full flex-1 px-3 sm:px-4 py-4">
+      <section id="view-categories" class="tab-view">
+        <div id="view-categories-inner"></div>
+      </section>
+
+      <section id="view-sites" class="tab-view hidden">
+        <div id="view-sites-inner"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal-root" class="fixed inset-0 z-50 hidden"></div>
+  <div id="toast-root" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

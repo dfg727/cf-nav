@@ -250,6 +250,7 @@ app.openapi(createCategoryRoute, async (c) => {
     if (!db) return c.json({ error: 'Database not available' }, 500);
 
     const res = await db.insert(categories).values({
+        pid: body.pid,
         name: body.name,
         sortOrder: body.sortOrder,
         isPublic: body.isPublic,
