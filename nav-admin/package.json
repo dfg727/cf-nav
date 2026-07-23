@@ -1,12 +1,12 @@
 {
-  "name": "nav-ui",
+  "name": "nav-admin",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev:css": "tailwindcss -i ./src/input.css -o ./public/style.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./public/style.css --minify",
     "dev": "npm run build && wrangler pages dev public --port 8788",
-    "deploy": "npm run build && wrangler pages deploy public --project-name=nav-ui"
+    "deploy": "npm run build && wrangler pages deploy public --project-name=nav-admin"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.13",

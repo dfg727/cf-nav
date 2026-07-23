@@ -1,4 +1,4 @@
-# nav-ui
+# nav-admin
 
 CF Nav 管理后台 —— 基于 nav-api v2 接口的纯静态管理页面（HTML + Tailwind CSS + 原生 JS，无构建框架），可直接部署到 Cloudflare Pages。
 
@@ -11,7 +11,7 @@ CF Nav 管理后台 —— 基于 nav-api v2 接口的纯静态管理页面（HT
 ## 目录结构
 
 ```
-nav-ui/
+nav-admin/
   src/input.css       # Tailwind 源文件（含少量 @layer components）
   public/
     index.html        # 页面结构
@@ -30,7 +30,7 @@ nav-ui/
 
 ```bash
 npm install          # 在仓库根目录执行一次即可（workspaces）
-npm run ui:dev        # 等价于: cd nav-ui && npm run dev
+npm run admin:dev        # 等价于: cd nav-admin && npm run dev
 ```
 
 `dev` 会先构建一次 CSS，再用 `wrangler pages dev` 在本地起一个静态服务器（默认 http://127.0.0.1:8788）。修改 `src/input.css` 后需要重新构建；如果只改 JS/HTML，刷新浏览器即可。
@@ -38,7 +38,7 @@ npm run ui:dev        # 等价于: cd nav-ui && npm run dev
 如需一边改 Tailwind 一边热更新 CSS：
 
 ```bash
-cd nav-ui && npm run dev:css   # --watch 模式
+cd nav-admin && npm run dev:css   # --watch 模式
 ```
 
 首次打开页面时，在设置框里填入本地或线上 nav-api 的地址（例如 `http://127.0.0.1:8787`）和 `api-key`。
@@ -46,17 +46,17 @@ cd nav-ui && npm run dev:css   # --watch 模式
 ## 构建
 
 ```bash
-npm run ui:build
+npm run admin:build
 ```
 
-产出 `nav-ui/public/style.css`（压缩版），`public/` 目录即为完整的静态站点。
+产出 `nav-admin/public/style.css`（压缩版），`public/` 目录即为完整的静态站点。
 
 ## 部署到 Cloudflare Pages
 
 ```bash
-npm run ui:deploy
+npm run admin:deploy
 ```
 
-等价于 `cd nav-ui && npm run build && wrangler pages deploy public --project-name=nav-ui`。首次部署会提示创建 Cloudflare Pages 项目，按提示确认即可。
+等价于 `cd nav-admin && npm run build && wrangler pages deploy public --project-name=nav-admin`。首次部署会提示创建 Cloudflare Pages 项目，按提示确认即可。
 
 部署完成后打开生成的 `*.pages.dev` 地址，在设置框里填入你的 nav-api 生产环境地址和 `api-key` 即可开始管理。

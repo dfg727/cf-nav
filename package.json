@@ -4,7 +4,7 @@
   "private": true,
   "workspaces": [
     "nav-api",
-    "nav-ui",
+    "nav-admin",
     "packages/*"
   ],
   "scripts": {
@@ -15,9 +15,9 @@
     "api:db:generate": "npm run db:generate -w nav-api",
     "api:db:migrate:prod": "npm run db:migrate:prod -w nav-api",
     "api:db:seed:prod": "npm run db:seed:prod -w nav-api",
-    "ui:dev": "npm run dev -w nav-ui",
-    "ui:build": "npm run build -w nav-ui",
-    "ui:deploy": "npm run deploy -w nav-ui",
+    "admin:dev": "npm run dev -w nav-admin",
+    "admin:build": "npm run build -w nav-admin",
+    "admin:deploy": "npm run deploy -w nav-admin",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
