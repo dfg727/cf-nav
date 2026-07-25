@@ -5,7 +5,7 @@
 
 This is a monorepo managed by npm workspaces.
 
-- `nav-api`: Backend API (Cloudflare Workers, Hono, Drizzle)
+- `nav-api`: Backend API (Cloudflare Workers, Hono, Drizzle) See [nav-api/README.md](nav-api/README.md)
 - `nav-admin`: Admin frontend for the v2 API (static HTML + Tailwind CSS + vanilla JS, deployable to Cloudflare Pages). See [nav-admin/README.md](nav-admin/README.md).
 
 ## Development
